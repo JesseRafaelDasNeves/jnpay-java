@@ -1,4 +1,4 @@
-package com.example.jnpay.model;
+package com.example.jnpay.invoice;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
