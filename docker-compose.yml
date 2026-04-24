@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  postgresbd:
+    image: postgres:18.1
+    container_name: pg_jnpay_java
+    environment:
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_USER: app_web
+      POSTGRES_DB: o_pgbanco_jnpay
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgbanco_jnpay:/var/lib/postgresql
+    networks:
+      - jnpay-network
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U app_web -d o_pgbanco_jnpay" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgbanco_jnpay:
+    external: true
+
+networks:
+  jnpay-network:
+    driver: bridge

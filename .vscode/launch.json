@@ -1,0 +1,34 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "JnpayApplication",
+            "request": "launch",
+            "mainClass": "com.example.jnpay.JnpayApplication",
+            "projectName": "jnpay"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug Nest Framework",
+            "runtimeExecutable": "yarn",
+            "runtimeArgs": [
+                "run",
+                "start:debug",
+                "--inspect-brk"
+            ],
+            "autoAttachChildProcesses": true,
+            "restart": true,
+            "sourceMaps": true,
+            "stopOnEntry": false,
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Debug Angular",
+            "type": "chrome",
+            "request": "launch",
+            "preLaunchTask": "npm: start",
+            "url": "http://localhost:4200"
+        }
+    ]
+}
